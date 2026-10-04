@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viikko 4 - Koiragalleria</title>
+    <link rel="stylesheet" href="tyylit.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Satunnainen Koiragalleria</h1>
+        <p>Valitse rotu ja hae uusia koirakuvia avoimesta rajapinnasta.</p>
+        
+        <div class="kontrollit">
+            <select id="rotuValinta">
+                <option value="random">Kaikki rodut (satunnainen)</option>
+                <option value="hound">Ajokoirat (Hound)</option>
+                <option value="husky">Husky</option>
+                <option value="pug">Mopsi (Pug)</option>
+                <option value="retriever">Noutaja (Retriever)</option>
+            </select>
+            <button id="haeNappi">Hae koirakuvat</button>
+        </div>
+
+        <p id="tilaTeksti">Vastaus ilmestyy tähän...</p>
+        
+        <div id="tulosAlue" class="tulos-grid"></div>
+        
+        <p><em>Vinkki: Avaa selain, paina näppäimistöltä <strong>F12</strong> ja valitse <strong>Console</strong> nähdäksesi raakadatan.</em></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
