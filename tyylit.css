@@ -1,4 +1,111 @@
+/* TÄMÄ ON TÄRKEÄ UUSI LISÄYS: Estää elementtejä kasvamasta yli 100% leveyden */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 1rem; /* Pienempi padding mobiiliin */
+    margin: 0; /* Nollataan selaimen oletusmarginaali, joka voi aiheuttaa sivuttaisvieritystä */
+}
+
+/* Palautetaan alkuperäinen 2rem padding isommilla ruuduilla */
+@media (min-width: 600px) {
+    body {
+        padding: 2rem;
+    }
+}
+
+.container {
+    background-color: white;
+    padding: 1rem; /* PIENENNETTY: Antaa mobiilissa enemmän tilaa sisällölle */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%; /* Varmistaa, että säiliö pysyy annettujen mittojen sisällä */
+}
+
+/* Palautetaan alkuperäinen paksumpi container-sisennys isommilla ruuduilla */
+@media (min-width: 600px) {
+    .container {
+        padding: 2rem;
+    }
+}
+
+.kontrollit {
+    display: flex;
+    flex-direction: column; /* Mobiilissa kontrollit allekkain */
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+select, button {
+    padding: 0.8rem 1rem; 
+    font-size: 16px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%; /* Kontrollit ottavat koko leveyden mobiilissa */
+}
+
+/* Muutetaan kontrollit takaisin vierekkäisiksi isommilla näytöillä */
+@media (min-width: 600px) {
+    .kontrollit {
+        flex-direction: row;
+        align-items: center;
+    }
+    select, button {
+        width: auto; /* Palautetaan automaattinen leveys */
+    }
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+#tilaTeksti {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.virhe {
+    color: #d9534f !important;
+    font-weight: bold;
+}
+
+.tulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.kortti {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.kortti img {
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}body {
     font-family: Arial, sans-serif;
     background-color: #f0f4f8;
     color: #333;
