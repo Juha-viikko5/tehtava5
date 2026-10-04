@@ -2,7 +2,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f4f8;
     color: #333;
-    padding: 2rem;
+    padding: 1rem; /* Pienennetty padding mobiiliin */
+}
+
+/* Palautetaan alkuperäinen 2rem padding isommilla ruuduilla */
+@media (min-width: 600px) {
+    body {
+        padding: 2rem;
+    }
 }
 
 .container {
@@ -16,15 +23,29 @@ body {
 
 .kontrollit {
     display: flex;
+    flex-direction: column; /* Mobiilissa kontrollit allekkain */
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
 select, button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    padding: 0.8rem 1rem; /* Hieman enemmän tilaa sormella osumiseen */
+    font-size: 16px; /* 16px estää mobiiliselaimien (kuten iOS Safari) automaattisen zoomin */
     border-radius: 5px;
     border: 1px solid #ccc;
+    width: 100%; /* Kontrollit ottavat koko leveyden mobiilissa */
+    box-sizing: border-box; /* Pitää elementit oikean kokoisina paddingista huolimatta */
+}
+
+/* Muutetaan kontrollit takaisin vierekkäisiksi isommilla näytöillä */
+@media (min-width: 600px) {
+    .kontrollit {
+        flex-direction: row;
+        align-items: center;
+    }
+    select, button {
+        width: auto; /* Palautetaan automaattinen leveys */
+    }
 }
 
 button {
